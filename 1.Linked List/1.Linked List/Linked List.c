@@ -15,7 +15,7 @@ typedef struct _tag_SeqList
 }TSeqList;
 
 
-TSeqList *SeqList_Create(int capacity)
+TSeqList *SeqList_Create(int capacity)	//Create the sequence list
 {
 	int ret=0;
 	TSeqList *tmp=NULL;
@@ -35,7 +35,58 @@ TSeqList *SeqList_Create(int capacity)
 		printf("Fun SeqList_Create() err:%d\n",ret);
 		return NULL;
 	}
+	tmp->capacity=capacity;
+	tmp->length=0;
 	return tmp;
+}
+
+void Seqlist_Destroy(TSeqList *list)
+{
+	TSeqList *tList=NULL;
+	if(list==NULL)	//If the list is empty,then return.
+	{
+		return;
+	}
+	tList=(TSeqList *)list;
+	if (tList->node!=NULL)
+	{
+		free(tList->node);
+	}
+	return;
+}
+
+void SeqList_Clear(TSeqList *list)	//clear the list to return to the initialization state.
+{
+	TSeqList *tList=NULL;
+	if(list==NULL)	//If the list is empty,then return.
+	{
+		return;
+	}
+	tList=(TSeqList *)list;
+	tList->length=0;
+	return;
+}
+
+int SeqList_Length(TSeqList *list)
+{
+	TSeqList *tList=NULL;
+	if(list==NULL)	//If the list is empty,then return.
+	{
+		return -1;
+	}
+	tList=(TSeqList *)list;
+	return tList->length;
+}
+
+int SeqList_Capacity(TSeqList *list)
+{
+	TSeqList *tList=NULL;
+	if(list==NULL)	//If the list is empty,then return.
+	{
+		return -1;
+	}
+	tList=(TSeqList *)list;
+	return tList->capacity;
 }
 
 int main()
