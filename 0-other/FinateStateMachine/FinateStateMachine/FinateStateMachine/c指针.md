@@ -68,3 +68,4 @@ p是指向结构体的指针，则
 
 七、指针的分类
 
+https://github.com/SimonLien/CodeStudyForDataStructure/blob/master/0-other/FinateStateMachine/FinateStateMachine/FinateStateMachine/1.jpg
